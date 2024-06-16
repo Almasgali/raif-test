@@ -51,4 +51,8 @@ public class AccountService {
     public List<Account> getByCurrency(String currency) {
         return accountRepository.findByCurrency(currency);
     }
+
+    public List<Account> getByBalanceGreaterThan(double balance) {
+        return accountRepository.findByBalanceGreaterThan(balance);
+    }
 }
