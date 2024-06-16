@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  raif_app:
+    image: 'raiftest:0.0.1'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raif_app
+    depends_on:
+      - pg_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg_db:5432/raif-test
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    ports:
+      - "8080:8080"
+
+  pg_db:
+    image: postgres
+    restart: always
+    container_name: pg_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=raif-test

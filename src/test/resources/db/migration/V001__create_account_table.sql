@@ -1,0 +1,5 @@
+CREATE TABLE account (
+    id BIGINT PRIMARY KEY,
+    balance DOUBLE PRECISION NOT NULL,
+    currency VARCHAR(3) NOT NULL
+);
