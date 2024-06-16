@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = AccountCurrencyConstraintValidator.class)
 public @interface AccountCurrencyConstraint {
     String message() default "Currency should be either RUB, EUR or USD.";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
